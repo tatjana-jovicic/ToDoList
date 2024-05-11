@@ -1,0 +1,12 @@
+.megaphon {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  position: relative;
+  cursor: pointer;
+  margin-right: auto;
+  margin-left: 15px;
+}
+.megaphon img {
+  width: 100%;
+}
