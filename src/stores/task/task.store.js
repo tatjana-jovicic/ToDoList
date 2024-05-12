@@ -18,6 +18,7 @@ export const useTaskStore = create((set) => ({
       isCompleted: false,
     },
   ],
+  completedCount: 0,
   addItemToList: (newItem) =>
     set((state) => ({
       tasks: [...state.tasks, newItem],
@@ -25,5 +26,12 @@ export const useTaskStore = create((set) => ({
   removeTaskFromList: (itemId) =>
     set((state) => ({
       tasks: state.tasks.filter((item) => item.id !== itemId),
+      completedCount: state.tasks.find(
+        (item) => item.id === itemId && item.isCompleted
+      )
+        ? state.completedCount - 1
+        : state.completedCount,
     })),
+  setCompletedCount: (count) => set({ completedCount: count }),
+  setTasks: (newTasks) => set({ tasks: newTasks }),
 }));
