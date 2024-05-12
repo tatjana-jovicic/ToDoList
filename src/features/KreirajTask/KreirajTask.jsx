@@ -2,9 +2,11 @@ import { useState } from "react";
 import Button from "../../components/Button/Button";
 import { useTaskStore } from "../../stores/task/task.store";
 import "./KreirajTask.css";
+import { Alert, Snackbar } from "@mui/material";
 
 const KreirajTask = () => {
   const [inputValue, setInputValue] = useState("");
+  const [success, setSuccess] = useState(false);
   const { tasks, addItemToList } = useTaskStore();
 
   const handleInputChange = (event) => {
@@ -12,7 +14,7 @@ const KreirajTask = () => {
     setInputValue(event.target.value);
   };
 
-  const handleClick = () => {
+  const handleClickButton = () => {
     //console.log("Input field value:", inputValue);
     if (inputValue !== "") {
       const itemToAdd = {
@@ -21,8 +23,16 @@ const KreirajTask = () => {
         isCompleted: false,
       };
       addItemToList(itemToAdd);
+      setSuccess(true);
       setInputValue("");
     }
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setSuccess(false);
   };
 
   return (
@@ -34,7 +44,17 @@ const KreirajTask = () => {
         value={inputValue}
         onChange={handleInputChange}
       />
-      <Button buttonText="Sačuvaj" handleButtononClick={handleClick} />
+      <Button buttonText="Sačuvaj" handleButtononClick={handleClickButton} />
+      <Snackbar open={success} autoHideDuration={3000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity="success"
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          Task added!
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
