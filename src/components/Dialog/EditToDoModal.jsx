@@ -2,6 +2,7 @@ import { Dialog } from "primereact/dialog";
 import useTaskStore from "../../stores/task/task.store";
 import { useState } from "react";
 import Button from "../Button/Button";
+import "./EditToDoModal.css";
 
 const EditToDoModal = () => {
   const { editTodo, setDialog, dialog } = useTaskStore();
@@ -20,15 +21,9 @@ const EditToDoModal = () => {
   return (
     <Dialog
       appendTo="self"
-      header="Uredi svoju TO DO listu!"
+      header="UREDI SVOJ TASK:"
       visible={dialog.isOpen}
-      style={{
-        width: "50vw",
-        backgroundColor: "white",
-        color: "black",
-        padding: "1rem",
-        borderRadius: "10px",
-      }}
+      className="dialog_style"
       onHide={() => setDialog(false, null)}
     >
       <div className="dialog_form">
