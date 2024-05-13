@@ -7,7 +7,7 @@ import { Alert, Snackbar } from "@mui/material";
 const KreirajTask = () => {
   const [inputValue, setInputValue] = useState("");
   const [success, setSuccess] = useState(false);
-  const { tasks, addItemToList } = useTaskStore();
+  const { tasks, addTaskToList } = useTaskStore();
 
   const handleInputChange = (event) => {
     //We are storing the current value of the input field in a state variable
@@ -22,7 +22,7 @@ const KreirajTask = () => {
         title: inputValue,
         isCompleted: false,
       };
-      addItemToList(itemToAdd);
+      addTaskToList(itemToAdd);
       setSuccess(true);
       setInputValue("");
     }
