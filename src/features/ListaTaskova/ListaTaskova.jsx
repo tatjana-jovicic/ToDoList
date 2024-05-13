@@ -88,13 +88,18 @@ const ListaTaskova = () => {
                 >
                   {task?.title}
                 </p>
-
                 {/* //another way for checkbox using MUI
                  <Checkbox {...label} onClick={() => handleClick(task.id)} />
                 <p>{task.title}</p> */}
                 <span>
                   <img src={WriteIcon} onClick={() => setDialog(true, task)} />
-                  <img src={Bin} onClick={() => handleTaskRemove(task.id)} />
+                  <img
+                    src={Bin}
+                    onClick={() => {
+                      handleTaskRemove(task.id);
+                      alert(`Task "${task.title}" deleted.`);
+                    }}
+                  />
                 </span>
               </div>
             ))}
