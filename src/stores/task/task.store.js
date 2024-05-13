@@ -18,20 +18,31 @@ export const useTaskStore = create((set) => ({
       isCompleted: false,
     },
   ],
-  completedCount: 0,
-  addItemToList: (newItem) =>
+  dialog: {
+    isOpen: false,
+    item: null,
+  },
+  addTaskToList: (newTask) =>
     set((state) => ({
-      tasks: [...state.tasks, newItem],
+      tasks: [...state.tasks, newTask],
     })),
-  removeTaskFromList: (itemId) =>
+  removeTaskFromList: (id) =>
     set((state) => ({
-      tasks: state.tasks.filter((item) => item.id !== itemId),
-      completedCount: state.tasks.find(
-        (item) => item.id === itemId && item.isCompleted
-      )
-        ? state.completedCount - 1
-        : state.completedCount,
+      tasks: state.tasks.filter((task) => task.id !== id),
     })),
-  setCompletedCount: (count) => set({ completedCount: count }),
-  setTasks: (newTasks) => set({ tasks: newTasks }),
+  markTodoCompleted: (id) =>
+    set((state) => ({
+      tasks: state.tasks.map((task) =>
+        task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
+      ),
+    })),
+  editTodo: (id, updatedTodo) =>
+    set((state) => ({
+      tasks: state.tasks.map((task) =>
+        task.id === id ? { ...task, ...updatedTodo } : task
+      ),
+    })),
+  setDialog: (isOpen, item) => set({ dialog: { isOpen, item } }),
 }));
+
+export default useTaskStore;
