@@ -31,10 +31,6 @@ const ListaTaskova = () => {
     router(`/kreiraj_task`);
   };
 
-  const handleClick = (id) => {
-    markTodoCompleted(id);
-  };
-
   // console.log(tasks);
 
   const todos_completed = tasks.filter((task) => task.isCompleted).length;
@@ -56,11 +52,11 @@ const ListaTaskova = () => {
               </span>
             </div>
             {tasks.map((task) => (
-              <div
-                className="task"
-                key={task.id}
-                onClick={() => handleClick(task.id)}
-              >
+              <div className="task" key={task.id}>
+                {/* <span
+                  className={task.isCompleted ? "onClickSpan" : "spanTaskBox"}
+                  onClick={() => markTodoCompleted(task.id)}
+                /> */}
                 <svg
                   clipRule="evenodd"
                   fillRule="evenodd"
@@ -73,6 +69,7 @@ const ListaTaskova = () => {
                   height={30}
                   stroke="#57c339"
                   fill={task.isCompleted ? "#57c339" : "#0d0d0d"}
+                  onClick={() => markTodoCompleted(task.id)}
                 >
                   <circle
                     cx="11.998"
@@ -108,10 +105,7 @@ const ListaTaskova = () => {
       ) : (
         <>
           <h2 className="no_tasks">Nema taskova!</h2>
-          <Button
-            buttonText="Kreiraj task"
-            handleButtononClick={handleNavigate}
-          />
+          <Button buttonText="Kreiraj" handleButtononClick={handleNavigate} />
         </>
       )}
       <Snackbar open={isRemoved} autoHideDuration={3000} onClose={handleClose}>

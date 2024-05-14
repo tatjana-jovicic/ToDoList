@@ -28,11 +28,11 @@ const EditToDoModal = () => {
     >
       <div className="dialog_form">
         <form className="form" onSubmit={handleSubmit}>
-          <label htmlFor="tasks">
+          <label htmlFor="task">
             <input
               type="text"
-              name="tasks"
-              id="tasks"
+              name="task"
+              id="task"
               value={editedTitle}
               onChange={(e) => setEditedTitle(e.target.value)}
             />

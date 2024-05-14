@@ -7,16 +7,6 @@ export const useTaskStore = create((set) => ({
       title: "Hello world!",
       isCompleted: false,
     },
-    {
-      id: 2,
-      title: "Hello world 2!",
-      isCompleted: false,
-    },
-    {
-      id: 3,
-      title: "Hello world 3!",
-      isCompleted: false,
-    },
   ],
   dialog: {
     isOpen: false,
@@ -36,10 +26,18 @@ export const useTaskStore = create((set) => ({
         task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
       ),
     })),
+  // editTodo: (id, updatedTodo) =>
+  //   set((state) => ({
+  //     tasks: state.tasks.map((task) =>
+  //       task.id === id ? { ...task, ...updatedTodo } : task
+  //     ),
+  //   })),
   editTodo: (id, updatedTodo) =>
     set((state) => ({
       tasks: state.tasks.map((task) =>
-        task.id === id ? { ...task, ...updatedTodo } : task
+        task.id === id
+          ? { ...task, ...updatedTodo, isCompleted: false } //sets isCompleted to false when changing the title
+          : task
       ),
     })),
   setDialog: (isOpen, item) => set({ dialog: { isOpen, item } }),
