@@ -20,26 +20,24 @@ const EditToDoModal = () => {
 
   return (
     <Dialog
+      className="dialog_style"
       appendTo="self"
       header="UREDI SVOJ TASK:"
       visible={dialog.isOpen}
-      className="dialog_style"
       onHide={() => setDialog(false, null)}
     >
-      <div className="dialog_form">
-        <form className="form" onSubmit={handleSubmit}>
-          <label htmlFor="task">
-            <input
-              type="text"
-              name="task"
-              id="task"
-              value={editedTitle}
-              onChange={(e) => setEditedTitle(e.target.value)}
-            />
-          </label>
-          <Button buttonText="Sačuvaj" />
-        </form>
-      </div>
+      <form className="form" onSubmit={handleSubmit}>
+        <label htmlFor="task">
+          <input
+            type="text"
+            name="task"
+            id="task"
+            value={editedTitle}
+            onChange={(e) => setEditedTitle(e.target.value)}
+          />
+        </label>
+        <Button buttonText="Sačuvaj" />
+      </form>
     </Dialog>
   );
 };

@@ -4,10 +4,3 @@
   padding: 2rem;
   text-align: center;
 } */
-
-body {
-  background-color: rgb(49, 65, 92);
-  margin: auto;
-  display: flex;
-  justify-content: center;
-}
