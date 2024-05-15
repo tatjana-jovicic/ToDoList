@@ -1,21 +1,21 @@
 import "./App.css";
-import Pocetna from "./features/Pocetna/Pocetna";
-import KreirajTask from "./features/KreirajTask/KreirajTask";
+import Home from "./features/Home/Home";
+import CreateTask from "./features/CreateTask/CreateTask";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navigacija from "./features/Navigacija/Navigacija";
-import ListaTaskova from "./features/ListaTaskova/ListaTaskova";
-import ONama from "./features/ONama/ONama";
+import Navigation from "./features/Navigation/Navigation";
+import ListsTasks from "./features/ListsTasks/ListsTasks";
+import About from "./features/About/About";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Navigacija />
+        <Navigation />
         <Routes>
-          <Route path="/" element={<Pocetna />} />
-          <Route path="/kreiraj_task" element={<KreirajTask />} />
-          <Route path="/lista_taskova" element={<ListaTaskova />} />
-          <Route path="/o_nama" element={<ONama />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/create_task" element={<CreateTask />} />
+          <Route path="/lists_tasks" element={<ListsTasks />} />
+          <Route path="/about_me" element={<About />} />
         </Routes>
       </BrowserRouter>
     </>

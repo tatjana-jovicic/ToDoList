@@ -1,0 +1,19 @@
+.home_div {
+  color: white;
+  text-align: center;
+  margin: auto;
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.home_div p {
+  margin: 0;
+}
+
+@media only screen and (max-width: 500px) {
+  .home_div p {
+    font-size: 35px;
+  }
+}
