@@ -7,6 +7,7 @@
   padding-top: 5rem;
   padding-bottom: 2rem;
 }
+
 .label {
   display: flex;
   flex-direction: row;
@@ -42,8 +43,9 @@ h2 {
 .title_box h1 {
   font-size: 40px;
 }
-.task h2 {
-  font-size: 20px;
+.task_div {
+  display: grid;
+  gap: 20px;
 }
 .task {
   background-color: rgb(199, 199, 199);
@@ -60,26 +62,27 @@ h2 {
   margin-right: 10px;
   justify-content: space-between;
 }
+.task p {
+  font-size: 20px;
+}
 .task img {
   padding: 3px;
   width: 30px;
   height: 30px;
 }
 .no_tasks {
+  text-align: center;
   font-size: 40px;
   color: white;
 }
-.onClickSpan {
-  background-color: brown;
-  cursor: pointer;
-}
-.spanTaskBox {
-  background-color: aqua;
-  cursor: pointer;
-}
 @media only screen and (max-width: 500px) {
-  .label span {
-    width: 100%;
-    max-width: 120px;
+  .title_box h1 {
+    font-size: 25px;
+  }
+  .task h2 {
+    font-size: 18px;
+  }
+  .no_tasks {
+    font-size: 17px;
   }
 }
