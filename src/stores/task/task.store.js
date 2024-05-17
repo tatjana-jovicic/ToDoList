@@ -20,7 +20,7 @@ export const useTaskStore = create((set) => ({
     set((state) => ({
       tasks: state.tasks.filter((task) => task.id !== id),
     })),
-  markTodoCompleted: (id) =>
+  markTaskCompleted: (id) =>
     set((state) => ({
       tasks: state.tasks.map((task) =>
         task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
@@ -32,12 +32,10 @@ export const useTaskStore = create((set) => ({
   //       task.id === id ? { ...task, ...updatedTodo } : task
   //     ),
   //   })),
-  editTodo: (id, updatedTodo) =>
+  editTask: (id, updatedTodo) =>
     set((state) => ({
       tasks: state.tasks.map((task) =>
-        task.id === id
-          ? { ...task, ...updatedTodo, isCompleted: false } //sets isCompleted to false when changing the title
-          : task
+        task.id === id ? { ...task, ...updatedTodo, isCompleted: false } : task
       ),
     })),
   setDialog: (isOpen, item) => set({ dialog: { isOpen, item } }),

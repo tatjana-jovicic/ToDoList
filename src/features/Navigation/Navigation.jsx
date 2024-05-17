@@ -13,7 +13,7 @@ const Navigation = () => {
         <div className="nav_links">
           <Link to={{ pathname: "/" }}>Početna</Link>
           <Link to={{ pathname: "/create_task" }}>Kreiraj task</Link>
-          <div className="span">
+          <div className="span_div">
             <span>{tasks.length}</span>
             <Link to={{ pathname: "/lists_tasks" }}> Lista taskova</Link>
           </div>

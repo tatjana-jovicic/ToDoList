@@ -2,10 +2,12 @@ import { useState } from "react";
 import Button from "../../components/Button/Button";
 import { useTaskStore } from "../../stores/task/task.store";
 import "./CreateTask.css";
+import useNotificationStore from "../../stores/notification/notification.store";
 
 const CreateTask = () => {
   const [inputValue, setInputValue] = useState("");
   const { tasks, addTaskToList } = useTaskStore();
+  const setNotifcation = useNotificationStore((state) => state.setNotification);
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -13,13 +15,14 @@ const CreateTask = () => {
 
   const handleClickButton = () => {
     if (inputValue !== "") {
-      const itemToAdd = {
+      const taskToAdd = {
         id: tasks.length + 1,
         title: inputValue,
         isCompleted: false,
       };
-      addTaskToList(itemToAdd);
+      addTaskToList(taskToAdd);
       setInputValue("");
+      setNotifcation(true, "Task added!", "success");
     }
   };
 
