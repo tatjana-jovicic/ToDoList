@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navigation from "./features/Navigation/Navigation";
 import ListsTasks from "./features/ListsTasks/ListsTasks";
 import About from "./features/About/About";
-import Notification from "./components/notification/Notification";
+import Notification from "./components/Notification/Notification";
 import useNotificationStore from "./stores/notification/notification.store";
 
 const App = () => {
