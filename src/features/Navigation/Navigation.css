@@ -14,7 +14,8 @@
 }
 
 .nav a {
-  color: #385170;
+  /* color: #385170; */
+  color: black;
 }
 .nav a:hover {
   color: #000000;
@@ -39,4 +40,23 @@
   align-items: end;
   position: absolute;
   right: -14px;
+}
+
+@media only screen and (max-width: 530px) {
+  .nav_links {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .nav_links span {
+    width: 16px;
+    height: 16px;
+    right: -13px;
+  }
+
+  .nav_links {
+    gap: 15px;
+    font-size: 14px;
+  }
 }

@@ -10,3 +10,14 @@
 .megaphon img {
   width: 100%;
 }
+
+@media only screen and (max-width: 460px) {
+  .megaphon {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  .megaphon img {
+    width: 80%;
+  }
+}
